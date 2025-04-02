@@ -1,39 +1,19 @@
-// // src/styles/GlobalStyles.js
-// import { createGlobalStyle } from "styled-components";
-
-// const GlobalStyle = createGlobalStyle`
-//   * {
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
-//   }
-//   body {
-//     font-family: 'Arial', sans-serif;
-//     background:rgb(253, 243, 223);
-//     color: #333;
-//   }
-//   a {
-//     text-decoration: none;
-//     color: inherit;
-//   }
-// `;
-
-// export default GlobalStyle;
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-  /* Reset & base */
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
-  html, body {
+  html, body, #root {
+    height: 100%;
     font-family: ${({ theme }) => theme.fonts.body};
     background-color: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text};
     scroll-behavior: smooth;
+     overflow-x: hidden;
   }
 
   a {
@@ -45,8 +25,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${({ theme }) => theme.fonts.title};
     color: ${({ theme }) => theme.colors.primary};
   }
-
-  
 
   button {
     font-family: ${({ theme }) => theme.fonts.body};
@@ -65,15 +43,3 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default GlobalStyle;
-
-// import { createGlobalStyle } from "styled-components";
-
-// const GlobalStyle = createGlobalStyle`
-//   body {
-//     background-color: ${({ theme }) => theme?.colors?.background || "#ffffff"};
-//     color: ${({ theme }) => theme?.colors?.text || "#000000"};
-//     font-family: ${({ theme }) => theme?.fonts?.body || "sans-serif"};
-//   }
-// `;
-
-// export default GlobalStyle;

@@ -1,25 +1,28 @@
 // FuturisticIntro.js
 import React, { useState, useEffect, useCallback } from "react";
 import styled from "styled-components";
+import project1 from "../images/project1.png";
+import project2 from "../images/project2.png";
+import project3 from "../images/project3.png";
 
 const projects = [
   {
     id: 1,
     name: "Project Alpha",
     description: "Immersive WebGL Experience",
-    image: "/images/project1.PNG",
+    image: project1,
   },
   {
     id: 2,
     name: "Project Beta",
     description: "AI-powered Productivity App",
-    image: "/images/project2.jpg",
+    image: project2,
   },
   {
     id: 3,
     name: "Project Gamma",
     description: "Next-gen Portfolio",
-    image: "/images/project3.jpg",
+    image: project3,
   },
 ];
 
@@ -27,9 +30,12 @@ const Wrapper = styled.div`
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100vh;
+  width: 100vw; /* Good */
+  overflow-x: hidden; /* Add this too if needed */
 `;
 
 const FullscreenSlide = styled.div`
+  min-width: 0;
   height: 100vh;
   width: 100%;
   position: relative;
