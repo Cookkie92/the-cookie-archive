@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import GlobalStyle from "./styles/GlobalStyles";
 import theme from "./theme";
 import styled from "styled-components";
+import ProjectDetails from "./pages/ProjectDetails";
 
 const Container = styled.div`
   display: flex;
@@ -40,6 +41,8 @@ function App() {
           <Header />
 
           <Routes>
+            <Route path="/projects/:id" element={<ProjectDetails />} />
+
             {/* Render Home FULLSCREEN – no Main wrapper */}
             <Route path="/" element={<Home />} />
 

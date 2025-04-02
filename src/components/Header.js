@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../images/cookielogo.png";
+import AnimatedLogo from "../components/AnimatedLogo";
 
 // Styled Components
 // const HeaderContainer = styled.header`
@@ -16,7 +17,6 @@ import logo from "../images/cookielogo.png";
 // `;
 
 const HeaderContainer = styled.header`
-  height: 80px;
   width: 100%;
   position: fixed;
   top: 0;
@@ -84,14 +84,15 @@ function Header() {
     <HeaderContainer>
       <HeaderContent>
         <Brand>
-          <LogoImage src={logo} alt="Cookie Squirrel Logo" />
+          {/* Use the animated logo instead of the static one */}
+          <AnimatedLogo />
           <Title>The Cookie Archive</Title>
         </Brand>
         <Nav>
           <StyledLink to="/" end>
             Home
           </StyledLink>
-          <StyledLink to="/cv">My CV</StyledLink>
+          <StyledLink to="/cv">Cv</StyledLink>
           <StyledLink to="/contact">Contact</StyledLink>
         </Nav>
       </HeaderContent>
