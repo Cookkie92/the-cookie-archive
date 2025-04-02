@@ -14,10 +14,9 @@ import logo from "../images/cookielogo.png";
 //   left: 0;
 //   z-index: 1000;
 // `;
-export const HEADER_HEIGHT = "80px";
 
 const HeaderContainer = styled.header`
-  height: ${HEADER_HEIGHT};
+  height: 80px;
   width: 100%;
   position: fixed;
   top: 0;

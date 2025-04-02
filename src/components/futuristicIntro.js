@@ -1,5 +1,4 @@
 // FuturisticIntro.js
-import { HEADER_HEIGHT } from "./Header";
 
 import React, { useState, useEffect, useCallback } from "react";
 import styled from "styled-components";
@@ -30,7 +29,7 @@ const projects = [
 
 const Wrapper = styled.div`
   scroll-snap-type: y mandatory;
-  scroll-padding-top: ${HEADER_HEIGHT};
+  scroll-padding-top: 80px;
   overflow-y: scroll;
   height: 100vh;
   width: 100vw;
@@ -38,10 +37,9 @@ const Wrapper = styled.div`
 `;
 
 const FullscreenSlide = styled.div`
-  min-height: 100vh;
+  height: calc(100vh - 80px); // ← 80px = header height
+  margin-top: 80px; // ← push each slide down visually
   width: 100%;
-  padding-top: ${HEADER_HEIGHT}; // 👈 Push content down below navbar
-  box-sizing: border-box;
   scroll-snap-align: start;
   background-image: url(${(props) => props.bg});
   background-size: cover;
