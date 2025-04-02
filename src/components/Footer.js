@@ -4,12 +4,11 @@ import styled from "styled-components";
 // Styled Components for Footer
 const FooterContainer = styled.footer`
   width: 100%;
-  background-color: #333;
-  color: white;
-  padding: 20px 0;
-  position: relative;
-  bottom: 0;
+  background-color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.primary};
   text-align: center;
+  padding: 20px;
+  font-size: 14px;
 `;
 
 const FooterContent = styled.div`
@@ -27,9 +26,7 @@ function Footer() {
   return (
     <FooterContainer>
       <FooterContent>
-        <FooterText>
-          &copy; 2025 The Cookie Archive. All rights reserved.
-        </FooterText>
+        <FooterText>© 2024 The Cookie Archive. All rights reserved.</FooterText>
       </FooterContent>
     </FooterContainer>
   );
