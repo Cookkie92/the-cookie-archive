@@ -1,3 +1,13 @@
+portfoliosites
+https://cranky-swanson-d2114a.netlify.app/ -- https://github.com/Cookkie92/kristian-koloy-js1-ca
+https://incomparable-bavarois-077734.netlify.app/ -- https://github.com/Cookkie92/js-frameworks-ca
+https://singular-pony-f812ff.netlify.app/ -- https://github.com/Cookkie92/GoodFoodMood
+https://determined-shockley-36c2b8.netlify.app/ -- https://github.com/Cookkie92/SP1
+https://candid-marshmallow-290178.netlify.app/ -- https://github.com/Cookkie92/Semester-Project-2 -- bidbois
+
+workclow ca
+https://github.com/Cookkie92/workflow-repo-ca
+
 The Cookie Archive
 
 Overview
