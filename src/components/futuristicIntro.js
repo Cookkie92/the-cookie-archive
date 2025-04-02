@@ -1,4 +1,6 @@
 // FuturisticIntro.js
+import { HEADER_HEIGHT } from "./Header";
+
 import React, { useState, useEffect, useCallback } from "react";
 import styled from "styled-components";
 import project1 from "../images/project1.png";
@@ -28,17 +30,18 @@ const projects = [
 
 const Wrapper = styled.div`
   scroll-snap-type: y mandatory;
+  scroll-padding-top: ${HEADER_HEIGHT};
   overflow-y: scroll;
   height: 100vh;
-  width: 100vw; /* Good */
-  overflow-x: hidden; /* Add this too if needed */
+  width: 100vw;
+  overflow-x: hidden;
 `;
 
 const FullscreenSlide = styled.div`
-  min-width: 0;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  position: relative;
+  padding-top: ${HEADER_HEIGHT}; // 👈 Push content down below navbar
+  box-sizing: border-box;
   scroll-snap-align: start;
   background-image: url(${(props) => props.bg});
   background-size: cover;

@@ -4,14 +4,26 @@ import styled from "styled-components";
 import logo from "../images/cookielogo.png";
 
 // Styled Components
+// const HeaderContainer = styled.header`
+//   width: 100%;
+//   // background-color: ${({ theme }) => theme.colors.text};
+//   color: ${({ theme }) => theme.colors.lightText};
+//   padding: 20px 0;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   z-index: 1000;
+// `;
+export const HEADER_HEIGHT = "80px";
+
 const HeaderContainer = styled.header`
+  height: ${HEADER_HEIGHT};
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.text};
-  color: ${({ theme }) => theme.colors.lightText};
-  padding: 20px 0;
   position: fixed;
   top: 0;
   left: 0;
+  background-color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.lightText};
   z-index: 1000;
 `;
 

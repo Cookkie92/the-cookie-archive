@@ -9,7 +9,7 @@ import Contact from "./pages/Contact";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import GlobalStyle from "./styles/GlobalStyles";
-import theme from "./theme"; // 👈 Import your theme
+import theme from "./theme";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -38,13 +38,30 @@ function App() {
         <GlobalStyle />
         <Container>
           <Header />
-          <Main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/cv" element={<CV />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </Main>
+
+          <Routes>
+            {/* Render Home FULLSCREEN – no Main wrapper */}
+            <Route path="/" element={<Home />} />
+
+            {/* Wrap other pages inside <Main> layout */}
+            <Route
+              path="/cv"
+              element={
+                <Main>
+                  <CV />
+                </Main>
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <Main>
+                  <Contact />
+                </Main>
+              }
+            />
+          </Routes>
+
           <Footer />
         </Container>
       </Router>
