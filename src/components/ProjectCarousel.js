@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styled from "styled-components";
 
-// Styled Components for Carousel
+// Styled Components
 const CarouselContainer = styled.div`
   width: 80%;
   max-width: 1200px;
@@ -23,6 +23,7 @@ const ProjectCard = styled.div`
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 18px;
@@ -72,11 +73,11 @@ function ProjectCarousel() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) =>
       prevIndex < projects.length - 1 ? prevIndex + 1 : 0
     );
-  };
+  }, [projects.length]);
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -84,14 +85,13 @@ function ProjectCarousel() {
     );
   };
 
-  // Auto-slide functionality using useEffect
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 3000); // Slide every 3 seconds
+    }, 3000);
 
-    return () => clearInterval(interval); // Cleanup the interval on component unmount
-  }, [nextSlide]); // Add nextSlide to the dependency array
+    return () => clearInterval(interval);
+  }, [nextSlide]);
 
   return (
     <CarouselContainer>
