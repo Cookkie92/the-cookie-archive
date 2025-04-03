@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import Home from "./pages/Home";
 import CV from "./pages/CV";
 import Contact from "./pages/Contact";
 import Header from "./components/Header";
