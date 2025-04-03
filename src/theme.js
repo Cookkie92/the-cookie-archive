@@ -9,6 +9,7 @@ const theme = {
     highlight: "#6A1B9A", // Anemone Purple
     text: "#212121", // Dark neutral for text
     lightText: "#f8f9fa", // Light text on dark bg
+    test: "#2c292b", // Test color for debugging
   },
   fonts: {
     title: "'Pacifico', cursive",

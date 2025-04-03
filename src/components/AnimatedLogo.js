@@ -1,28 +1,7 @@
 // AnimatedLogo.js
 import React from "react";
-import { motion } from "framer-motion";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
 import logo from "../images/cookielogo3.png";
-
-const LogoLink = styled(Link)`
-  text-decoration: none;
-`;
-
-const LogoWrapper = styled(motion.div)`
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  cursor: pointer;
-`;
-
-const LogoImage = styled(motion.img)`
-  width: 100%;
-  height: auto;
-`;
+import { LogoLink, LogoWrapper, LogoImage } from "../styles/AnimatedLogoStyles";
 
 const AnimatedLogo = () => {
   const handleClick = () => {
