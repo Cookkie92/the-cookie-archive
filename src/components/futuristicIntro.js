@@ -1,7 +1,14 @@
 // FuturisticIntro.js
-import React, { useState, useEffect } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import project1 from "../images/project1.png";
 import project2 from "../images/project2.png";
 import project3 from "../images/project3.png";
@@ -42,23 +49,29 @@ const TopWrapper = styled.div`
   display: flex;
   flex: 1;
   width: 100%;
+  position: relative;
 `;
 
 const AboutColumn = styled.div`
-  width: 30%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 40%;
   padding: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   text-align: left;
-  z-index: 2;
+  z-index: 3;
   background-color: ${({ theme }) => theme.colors.background};
-  clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
 `;
 
 const CarouselColumn = styled.div`
-  width: 70%;
+  width: 100%;
   height: 100%;
   overflow: hidden;
   position: relative;
@@ -83,7 +96,6 @@ const Slide = styled.div`
   flex-direction: column;
   padding: 40px;
   z-index: 2;
-  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
 `;
 
 const SlideBackground = styled.div`
@@ -117,7 +129,7 @@ const Info = styled.div`
   margin-bottom: 40px;
 `;
 
-const Button = styled.button`
+const StyledLink = styled(Link)`
   margin-top: 20px;
   padding: 12px 24px;
   font-size: 16px;
@@ -127,6 +139,7 @@ const Button = styled.button`
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s;
+  text-decoration: none;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.accent};
@@ -159,8 +172,17 @@ const MotionSection = styled(motion.section)`
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 `;
 
-const FuturisticIntro = () => {
+const FuturisticIntro = forwardRef((props, ref) => {
   const [current, setCurrent] = useState(0);
+  const scrollRef = useRef();
+
+  useImperativeHandle(ref, () => ({
+    scrollToTop: () => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    },
+  }));
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -170,7 +192,7 @@ const FuturisticIntro = () => {
   }, []);
 
   return (
-    <ScrollWrapper>
+    <ScrollWrapper ref={scrollRef}>
       <SplitSection>
         <TopWrapper>
           <AboutColumn>
@@ -188,9 +210,9 @@ const FuturisticIntro = () => {
                   <Info>
                     <h1>{project.name}</h1>
                     <p>{project.description}</p>
-                    <Button as="a" href={`/projects/${project.id}`}>
+                    <StyledLink to={`/projects/${project.id}`}>
                       View Details
-                    </Button>
+                    </StyledLink>
                   </Info>
                 </Slide>
               ))}
@@ -209,13 +231,11 @@ const FuturisticIntro = () => {
         >
           <h2>{project.name}</h2>
           <p>{project.description}</p>
-          <Button as="a" href={`/projects/${project.id}`}>
-            View Details
-          </Button>
+          <StyledLink to={`/projects/${project.id}`}>View Details</StyledLink>
         </MotionSection>
       ))}
     </ScrollWrapper>
   );
-};
+});
 
 export default FuturisticIntro;

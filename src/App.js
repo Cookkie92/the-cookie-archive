@@ -1,8 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Home from "./pages/Home";
 import CV from "./pages/CV";
 import Contact from "./pages/Contact";
@@ -12,6 +10,7 @@ import GlobalStyle from "./styles/GlobalStyles";
 import theme from "./theme";
 import styled from "styled-components";
 import ProjectDetails from "./pages/ProjectDetails";
+import FuturisticIntro from "./components/futuristicIntro";
 
 const Container = styled.div`
   display: flex;
@@ -33,20 +32,18 @@ const Main = styled.main`
 `;
 
 function App() {
+  const introRef = useRef();
+
   return (
     <ThemeProvider theme={theme}>
       <Router>
         <GlobalStyle />
         <Container>
-          <Header />
+          <Header scrollToTop={() => introRef.current?.scrollToTop()} />
 
           <Routes>
             <Route path="/projects/:id" element={<ProjectDetails />} />
-
-            {/* Render Home FULLSCREEN – no Main wrapper */}
-            <Route path="/" element={<Home />} />
-
-            {/* Wrap other pages inside <Main> layout */}
+            <Route path="/" element={<FuturisticIntro ref={introRef} />} />
             <Route
               path="/cv"
               element={
