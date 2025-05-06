@@ -2,7 +2,7 @@
 
 const theme = {
   colors: {
-    primary: "#FF6F00", // Clownfish Orange
+    primary: "#ff7700", // Clownfish Orange
     secondary: "#01579B", // Deep Sea Blue
     accent: "#FF8A65", // Coral Pink
     background: "#FFF3E0", // Reef Sand
